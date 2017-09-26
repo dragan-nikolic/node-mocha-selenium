@@ -14,6 +14,7 @@ Explore how to use Selenium with NodeJS and Mocha
 
 ## References
 
+* Selenium Design Patterns and Best Practicies (https://www.packtpub.com/web-development/selenium-design-patterns-and-best-practices)
 * https://simpleprogrammer.com/2014/02/03/selenium-with-node-js/
 * http://seleniumhq.github.io/selenium/docs/api/javascript/
 

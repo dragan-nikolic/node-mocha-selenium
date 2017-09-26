@@ -4,7 +4,7 @@
   "description": "explore selenium with mocha under node",
   "main": "index.js",
   "scripts": {
-    "test": "mocha *.spec.js"
+    "test": "mocha --timeout 10000 ./*/*.spec.js"
   },
   "repository": {
     "type": "git",
