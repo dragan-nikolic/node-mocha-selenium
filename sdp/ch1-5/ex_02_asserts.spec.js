@@ -3,9 +3,11 @@
 const test = require('selenium-webdriver/testing');
 // get Selenium!
 const webdriver = require('selenium-webdriver');
+// assert library
+const assert = require('assert');
 
-test.describe('Example 01', () => {
-  test.it('Example 01 Test 01', () => {
+test.describe('Example 02 Asserts', () => {
+  test.it.only('Verify Search with No Results Found', async () => {
     // get new instance of the Chrome browser
     const driver = new webdriver.Builder().forBrowser('chrome').build();
 
@@ -21,6 +23,13 @@ test.describe('Example 01', () => {
 
     // find the submit button via its id and click on it
     driver.findElement(webdriver.By.id('searchsubmit')).click();
+
+    // find the element which class name is 'entry' and get its text
+    // NOTE: for some reason have to use 'await'
+    const entry = await driver.findElement(webdriver.By.className('entry')).getText();
+
+    // verify that text of the 'entry' field contains text 'No Results Found'
+    assert(entry.includes('No Results Found'));
 
     // close the browser
     driver.quit();
