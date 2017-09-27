@@ -1,20 +1,18 @@
-// same as mocha_test.spec.js but does not require call to done()
+// this works, but had to use await with searchBox.getAttribute !!!???
 const assert = require('assert'),
 test = require('selenium-webdriver/testing'),
 webdriver = require('selenium-webdriver');
  
 test.describe('Google Search', () => {
-  test.it('should work - async', async () => {
-    const driver = new webdriver.Builder().
-        withCapabilities(webdriver.Capabilities.chrome()).
-        build();
+  test.it.only('should work - even without async-await', async () => {
+    const driver = new webdriver.Builder().forBrowser('chrome').build();
 
-    await driver.get('http://www.google.com');
+    driver.get('http://www.google.com');
     
     const searchBox = driver.findElement(webdriver.By.name('q'));
     searchBox.sendKeys('simple programmer');
     const value = await searchBox.getAttribute('value');
     assert.equal(value, 'simple programmer');
-    await driver.quit();
+    driver.quit();
   });
 });

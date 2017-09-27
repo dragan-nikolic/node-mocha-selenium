@@ -1,9 +1,12 @@
+// use resolve and reject calls to handle promises
+//
+// works ok, but the syntax is 'ugly', too many identations.
+// also have ot be careful to call 'done' properly
 const assert = require('assert'),
-test = require('selenium-webdriver/testing'),
 webdriver = require('selenium-webdriver');
  
-test.describe('Google Search', function() {
-  test.it('should work - promise', function(done) {
+describe('Google Search', function() {
+  it.only('should work - promise', function(done) {
     const driver = new webdriver.Builder().
         withCapabilities(webdriver.Capabilities.chrome()).
         build();
